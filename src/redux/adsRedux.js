@@ -17,7 +17,7 @@ export const fetchError = payload => ({ payload, type: FETCH_ERROR });
 
 
 //reducer
-const postsReducer = (statePart = [], action = {}) => {
+const adsReducer = (statePart = [], action = {}) => {
   switch (action.type) {
     case FETCH_START: {
       return {
@@ -52,4 +52,4 @@ const postsReducer = (statePart = [], action = {}) => {
   }
 };
 
-export default postsReducer;
+export default adsReducer;

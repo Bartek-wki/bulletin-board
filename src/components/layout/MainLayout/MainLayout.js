@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 import styles from './MainLayout.module.scss';
 
 const MainLayout = ({ children }) => (
-  <div>{children}</div>
+  <div className={styles.container}>
+    {children}
+  </div>
 );
 
 MainLayout.propTypes = {
