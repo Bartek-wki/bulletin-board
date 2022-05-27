@@ -1,4 +1,6 @@
 //selectors
+export const getAll = ({ ads }) => ads;
+export const getAdById = ({ ads}, id) => ads.find(ad => (ad.id === id));
 
 //action name creator
 const createActionName = actionName => `app/posts/${actionName}`;

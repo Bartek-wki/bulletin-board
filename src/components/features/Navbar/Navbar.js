@@ -17,7 +17,6 @@ const Navbar = () => {
 
   const user = useSelector(state => getUser(state));
   const changeUserStatus = (status) => dispatch(editUser(status));
-  console.log(user);
 
   return (
     <div className={styles.navbar}>
@@ -28,6 +27,7 @@ const Navbar = () => {
       </div>
       {user.status === 'unlogged' && <Button type='link' to='/' name='Login' />}
       {user.status !== 'unlogged' && <Button type='link' to='/ads/own' name='My ads' />}
+      {user.status !== 'unlogged' && <Button type='link' to='/ads/add' name='Add ad' />}
       {user.status !== 'unlogged' && <Button type='link' to='/' name='Logout' />}
     </div>
   );
