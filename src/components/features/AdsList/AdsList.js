@@ -1,5 +1,5 @@
 import React from 'react';
-//import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import { useSelector } from 'react-redux';
 import { getAll } from '../../../redux/adsRedux';
@@ -8,8 +8,16 @@ import styles from './AdsList.module.scss';
 
 import AdBox from '../AdBox/AdBox';
 
-const AdsList = () => {
-  const ads = useSelector(state => getAll(state));
+const AdsList = ({user}) => {
+  const allAds = useSelector(state => getAll(state));
+
+  let ads = '';
+
+  if (user) {
+    ads = allAds.filter(ad => ad.email === user);
+  } else {
+    ads = allAds;
+  }
 
 
   return (
@@ -19,6 +27,10 @@ const AdsList = () => {
       ))}
     </div>
   );
+};
+
+AdsList.propTypes = {
+  user: PropTypes.string,
 };
 
 export default AdsList;

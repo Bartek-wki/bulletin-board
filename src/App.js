@@ -6,6 +6,8 @@ import Header from './components/layout/Header/Header';
 
 import Home from './components/views/Home/Home';
 import Ad from './components/views/Ad/Ad';
+import OwnAds from './components/features/OwnAds/OwnAds';
+import NotFound from './components/views/NotFound/NotFound';
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/ad/:id' element={<Ad />} />
+        <Route path='/ads/own' element={<OwnAds />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </MainLayout>
   );
