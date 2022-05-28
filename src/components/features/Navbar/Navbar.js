@@ -27,7 +27,7 @@ const Navbar = () => {
       </div>
       {user.status === 'unlogged' && <Button type='link' to='/' name='Login' />}
       {user.status !== 'unlogged' && <Button type='link' to='/ads/own' name='My ads' />}
-      {user.status !== 'unlogged' && <Button type='link' to='/ads/add' name='Add ad' />}
+      {user.status !== 'unlogged' && <Button type='link' to='/ad/add' name='Add ad' />}
       {user.status !== 'unlogged' && <Button type='link' to='/' name='Logout' />}
     </div>
   );
