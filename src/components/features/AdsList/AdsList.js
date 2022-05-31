@@ -2,14 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { useSelector } from 'react-redux';
-import { getAll } from '../../../redux/adsRedux';
+import { getPublishedAds } from '../../../redux/adsRedux';
 
 import styles from './AdsList.module.scss';
 
 import AdBox from '../AdBox/AdBox';
 
-const AdsList = ({user}) => {
-  const allAds = useSelector(state => getAll(state));
+const AdsList = ({ user }) => {
+
+  const allAds = useSelector(state => getPublishedAds(state));
 
   let ads = '';
 
@@ -23,7 +24,7 @@ const AdsList = ({user}) => {
   return (
     <div className={styles.adsContainer}>
       {ads.map(ad => (
-        <AdBox key={ad.id} {...ad}/>
+        <AdBox key={ad._id} {...ad}/>
       ))}
     </div>
   );

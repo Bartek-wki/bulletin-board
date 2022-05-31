@@ -1,5 +1,8 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
+import { loadAdsRequest } from './redux/adsRedux';
 
 import MainLayout from './components/layout/MainLayout/MainLayout';
 import Header from './components/layout/Header/Header';
@@ -11,6 +14,12 @@ import AddAd from './components/views/AddAd/AddAd';
 import NotFound from './components/views/NotFound/NotFound';
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(loadAdsRequest());
+  }, [dispatch]);
+
   return (
     <MainLayout>
       <Header />

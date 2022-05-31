@@ -3,26 +3,25 @@ import PropTypes from 'prop-types';
 
 import { Link } from 'react-router-dom';
 
-
 import styles from './AdBox.module.scss';
 
-const AdBox = ({ id, title, updateDate, images, prise, location}) => {
+const AdBox = ({ _id, title, updated, images, price, location}) => {
   console.log();
 
   return (
     <div className={styles.adContainer}>
-      <Link to={'/ad/' + id}>
+      <Link to={'/ad/' + _id}>
         <div className={styles.imageContainer}>
-          <img alt='' src={`${process.env.PUBLIC_URL + images}`} />
+          <img alt='' src={`${process.env.PUBLIC_URL}/images/uploads/${images}`} />
         </div>
         <div className={styles.contentContainer}>
-          <div className={styles.title_prise}>
+          <div className={styles.title_price}>
             <p>{title}</p>
-            {prise && <p>${prise}</p>}
+            {price && <p>${price}</p>}
           </div>
-          <div className={styles.location_updateDate}>
+          <div className={styles.location_updated}>
             <p>{location}</p>
-            <p>{updateDate}</p>
+            <p>{updated}</p>
           </div>
         </div>
       </Link>
@@ -31,12 +30,12 @@ const AdBox = ({ id, title, updateDate, images, prise, location}) => {
 };
 
 AdBox.propTypes = {
-  id: PropTypes.string,
+  _id: PropTypes.string,
   title: PropTypes.string,
-  updateDate: PropTypes.string,
+  updated: PropTypes.string,
   location: PropTypes.string,
   images: PropTypes.string,
-  prise: PropTypes.number,
+  price: PropTypes.number,
 };
 
 export default AdBox;
