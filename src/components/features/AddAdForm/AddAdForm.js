@@ -10,8 +10,8 @@ const AddAdForm = () => {
   const dispatch = useDispatch();
   const user = useSelector(state => getUser(state));
 
-  const addAd = ({ title, content, price, location, images, published, updated, author, phone, status }) => {
-    dispatch(addAdRequest({ title, content, price, location, images, published, updated, author, phone, status }));
+  const addAd = (formData) => {
+    dispatch(addAdRequest(formData));
   };
 
   if (!user) {

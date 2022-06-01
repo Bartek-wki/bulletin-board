@@ -32,6 +32,7 @@ function App() {
         <Route path='/ad/add' element={<AddAd />} />
         <Route path='/user/logged' element={<LoadUser />} />
         <Route path='user/no-permission' element={<NoPermission />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </MainLayout>
   );

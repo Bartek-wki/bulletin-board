@@ -10,10 +10,8 @@ import AdBox from '../AdBox/AdBox';
 
 const AdsList = ({ user }) => {
 
-  console.log(user);
-
   const allAds = useSelector(state => getPublishedAds(state));
-  
+
   let ads = '';
 
   if (user) {

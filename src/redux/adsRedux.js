@@ -42,7 +42,14 @@ export const addAdRequest = (ad) => {
     try {
       let res = await axios.post(
         `${API_URL}/ads`,
-        ad);
+        ad,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        },
+      );
+      
       dispatch(addAd(res.data));
       dispatch(loadAdsRequest());
     } catch (e) {
