@@ -26,7 +26,7 @@ const SingleAd = () => {
   if (!ad) return <Navigate to='/' />;
   return (
     <div className={styles.adContainer}>
-      {user.status === 'admin' || user.email === ad.email ? <div className={styles.linkContainer}>
+      {user && user.email === ad.author ? <div className={styles.linkContainer}>
         <Button type='link' name='Edit' to={`/ad/edit/${id}`} />
       </div> : null}
       {ad.images && <div className={styles.imageContainer}>

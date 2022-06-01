@@ -1,15 +1,20 @@
 import React from 'react';
-
-import AdsList from '../AdsList/AdsList';
+import { useSelector } from 'react-redux';
+import { Navigate } from 'react-router-dom';
 
 import { getUser } from '../../../redux/userRedux';
-import { useSelector } from 'react-redux';
+
+import AdsList from '../AdsList/AdsList';
 
 const OwnAds = () => {
 
   const user = useSelector(state => getUser(state));
 
-  return (
+  if (!user) {
+    return <Navigate to={'/user/no-permission'} />;
+  }
+
+  return  (
     <AdsList user={user.email} />
   );
 };

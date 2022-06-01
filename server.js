@@ -3,17 +3,32 @@ const cors = require('cors');
 const path = require('path');
 const mongoose = require('mongoose');
 
+const passport = require('passport');
+const session = require('express-session');
+
 const adsRoutes = require('./routes/ads.routes');
+const authRoutes = require('./routes/auth.routes');
+const userRoutes = require('./routes/user.routes');
 
 const app = express();
+
+const passportConfig = require('./config/passport');
+
 
 /* MIDDLEWARE */
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+app.use(session({ secret: 'anything' }));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 /* API ENDPOINTS */
 app.use('/api', adsRoutes);
+app.use('/auth', authRoutes);
+app.use('/api/user', userRoutes);
 
 /* API ERROR PAGES */
 app.use('/api', (req, res) => {
@@ -21,10 +36,10 @@ app.use('/api', (req, res) => {
 });
 
 /* REACT WEBSITE */
-/*app.use(express.static(path.join(__dirname, '../build')));
+app.use(express.static(path.join(__dirname, './build')));
 app.use('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../build/index.html'));
-});*/
+  res.sendFile(path.join(__dirname, './build/index.html'));
+});
 
 /* MONGOOSE */
 mongoose.connect('mongodb://localhost:27017/bulletinBoard', { useNewUrlParser: true, useUnifiedTopology: true });

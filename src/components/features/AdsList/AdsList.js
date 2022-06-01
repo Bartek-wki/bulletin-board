@@ -10,16 +10,17 @@ import AdBox from '../AdBox/AdBox';
 
 const AdsList = ({ user }) => {
 
-  const allAds = useSelector(state => getPublishedAds(state));
+  console.log(user);
 
+  const allAds = useSelector(state => getPublishedAds(state));
+  
   let ads = '';
 
   if (user) {
-    ads = allAds.filter(ad => ad.email === user);
+    ads = allAds.filter(ad => ad.author === user);
   } else {
     ads = allAds;
   }
-
 
   return (
     <div className={styles.adsContainer}>

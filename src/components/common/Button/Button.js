@@ -10,11 +10,16 @@ const Button = ({ type, to, name, action }) => {
     return (
       <Link className={styles.button} to={to}>{name}</Link>
     );
+  } else if (type === 'a') {
+    return (
+      <a className={styles.button} href={to}>{name}</a>
+    );
   } else {
     return (
       <button className={styles.button} type={action}>{name}</button>
     );
   }
+
 };
 
 Button.propTypes = {
