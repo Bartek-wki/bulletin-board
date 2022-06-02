@@ -2,7 +2,7 @@ const Ad = require('../models/ad.model');
 
 exports.load = async (req, res) => {
   try {
-    const result = await Ad.find().sort({updated: -1});
+    const result = await Ad.find().sort({updated: 1});
     if (!result) res.status(404).json({ ad: 'Not found' });
     else res.json(result);
   }

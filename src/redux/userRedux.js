@@ -33,7 +33,7 @@ export const loadUserRequest = () => {
 // Initial state
 
 const initialState = {
-  user: [{email: 'user1@gmail.com'}],
+  user: [],
 };
 
 //reducer
