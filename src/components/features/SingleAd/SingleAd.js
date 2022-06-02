@@ -35,8 +35,8 @@ const SingleAd = () => {
       <div className={styles.contentContainer}>
         <p className={styles.title}>{ad.title}</p>
         <p className={styles.content}>{ad.content}</p>
-        {ad.prise || ad.location ? <p className={styles.header}>Details:</p> : null}
-        {ad.prise && <p><span>Prise:</span> ${ad.prise}</p>}
+        {ad.price || ad.location ? <p className={styles.header}>Details:</p> : null}
+        {ad.price !== 0 && <p><span>Price:</span> ${ad.price}</p>}
         {ad.location && <p><span>Location:</span> {ad.location}</p>}
         <p className={styles.header}>Contact:</p>
         <p><span>email:</span> {ad.author}</p>

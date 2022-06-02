@@ -10,8 +10,8 @@ const AddAdForm = () => {
   const dispatch = useDispatch();
   const user = useSelector(state => getUser(state));
 
-  const addAd = (formData) => {
-    dispatch(addAdRequest(formData));
+  const addAd = (formData, _id) => {
+    dispatch(addAdRequest(formData, _id));
   };
 
   if (!user) {
@@ -20,7 +20,7 @@ const AddAdForm = () => {
     );
   }
   return (
-    <AdForm action={addAd} button={ 'Add Ad!' }/>
+    <AdForm action={addAd} button={'Add Ad!'} header={ 'Add new ad' }/>
   );
 };
 

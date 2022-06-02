@@ -7,6 +7,18 @@
   background-color: $color-light;
   margin: 20px;
   border-radius: ($radius / 2);
+  position: relative;
+}
+
+.status {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 5px;
+  background-color: $color-text-light;
+  color: $color-light;
+  border-radius: $radius;
+  margin-right: 5px;
 }
 
 .imageContainer {
