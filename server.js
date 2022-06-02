@@ -5,7 +5,6 @@ const mongoose = require('mongoose');
 const formidable = require('express-formidable');
 const uniqid = require('uniqid');
 
-
 const passport = require('passport');
 const session = require('express-session');
 
@@ -16,7 +15,6 @@ const userRoutes = require('./routes/user.routes');
 const app = express();
 
 const passportConfig = require('./config/passport');
-
 
 /* MIDDLEWARE */
 app.use(cors());
@@ -49,11 +47,11 @@ app.use('/api', (req, res) => {
 });
 
 // Serve static files from the React app
-app.use(express.static(path.join(__dirname, './public')));
 
 
 /* REACT WEBSITE */
 app.use(express.static(path.join(__dirname, './build')));
+app.use(express.static(path.join(__dirname, './public')));
 app.use('*', (req, res) => {
   res.sendFile(path.join(__dirname, './build/index.html'));
 });
